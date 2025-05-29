@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Host miễn phí</title>
+</head>
+<body>
+    <h2>Upload file tài liệu</h2>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file">
+        <input type="submit" value="Tải lên">
+    </form>
+
+    <h3>Danh sách file đã upload:</h3>
+    <ul>
+        {% for file in files %}
+        <li><a href="{{ url_for('uploaded_file', filename=file) }}">{{ file }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
